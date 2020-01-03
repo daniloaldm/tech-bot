@@ -16,9 +16,6 @@ elif(hora>12 and hora<18):
 else:
 	msg = "Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."
 
-# sys.exit(), testes
-# msg="Boa noite", testes
-
 # Atendimento Inicial
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -41,7 +38,7 @@ def send_welcome(message):
 			"Instagram\n"
 			"https://www.instagram.com/bleezecommerce/\n\n"
 			"Nossos contatos:\n"
-			"85 0000-0000"
+			"85 3025-3315"
 		)
 
 # Primeiro menu de opções do cliente
@@ -62,12 +59,54 @@ def echo_all(message):
 			"Instagram\n"
 			"https://www.instagram.com/bleezecommerce/\n\n"
 			"Nossos contatos:\n"
-			"85 0000-0000")
+			"85 3025-3315")
 
 
 @bot.message_handler(commands=['Suporte'])
 def echo_all(message):
-	bot.reply_to(message, "Suporte print")
+	bot.reply_to(
+				message, "\n Digite ou clique nos comandos para prosseguir:\n"
+				"/Contato - Para entrar em contato com um de nossos atendentes.\n"
+				"/Ticket - Como abrir e acompanhar tickets?\n"
+				"/Whatsapp - Como adicionar o ícone de WhatsApp na minha loja?\n"
+				"/Cupom - Como criar cupons de desconto?\n\n"
+				
+				"Caso sua dúvida não seja relacionado a uma das mais frequentes citadas acima, segue o link para as perguntas frequentes:\n"
+				"https://bleez.zendesk.com/hc/pt-br/categories/360000688751-Perguntas-Frequentes\n\n"
 
-	
+				"Caso sua dúvida ou problema não esteja listada por favor digite ou clique no comando /Contato para entrar em contato."
+
+				
+			)
+
+@bot.message_handler(commands=['Contato'])
+def echo_all(message):
+	bot.reply_to(
+				message, "Telefone para contato direto:\n"
+				"85 3025-3315"
+			)
+
+@bot.message_handler(commands=['Ticket'])
+def echo_all(message):
+	bot.reply_to(
+				message, "https://bleez.zendesk.com/hc/pt-br/articles/360033185432-Como-abrir-e-acompanhar-tickets-"
+			)
+
+@bot.message_handler(commands=['Whatsapp'])
+def echo_all(message):
+	bot.reply_to(
+				message, "https://bleez.zendesk.com/hc/pt-br/articles/360035448071-Como-adicionar-o-%C3%ADcone-de-WhatsApp-na-minha-loja-\n"
+			)
+
+@bot.message_handler(commands=['Cupom'])
+def echo_all(message):
+	bot.reply_to(
+				message, "https://bleez.zendesk.com/hc/pt-br/articles/360033379972-Como-criar-cupons-de-desconto-\n"
+			)
+
 bot.polling()
+
+# Próximos passos
+# Gerar log das conversas
+# Encaminhar conversa para um atendente
+# Abrir ticket pelo próprio telegram, enviando email para suporte@bleez

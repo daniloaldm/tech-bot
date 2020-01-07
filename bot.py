@@ -1,14 +1,17 @@
 # encoding: utf-8
 import telebot
-from telebot import types
 from datetime import datetime
 import sys
+
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 token = raw_input('Digite o token do seu chatbot:')
 bot = telebot.TeleBot(token)
 
 now = datetime.now()
-hora = now.hour 
+hora = now.hour
 if(hora>6 and hora<12):
 	msg = "Bom dia."
 elif(hora>12 and hora<18):
@@ -19,7 +22,7 @@ else:
 # Atendimento Inicial
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-	
+
 	if(msg!="Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."):
 		bot.reply_to(
 			message, msg+", Seja bem vindo ao atendimento da Bleez.\n\n"
@@ -104,9 +107,23 @@ def echo_all(message):
 				message, "https://bleez.zendesk.com/hc/pt-br/articles/360033379972-Como-criar-cupons-de-desconto-\n"
 			)
 
+
+@bot.message_handler()
+def echo_all(message):
+	# Mensagem do usuário que não é comando
+	print message.json['text'],"\n\n"
+
+	#Id do usuário
+	print message.json['from']['id'],"\n\n"
+
+	#Dados que seria uma boa guardar
+	print message.json,"\n\n"
+
 bot.polling()
 
 # Próximos passos
-# Gerar log das conversas
-# Encaminhar conversa para um atendente
+# Como criar comando de startChamado e finalizarChamado
+# Como python esperar o finalizar chamado para pegar msg concatenar toda e abrir como ticket
+# Como pegar upload de img
 # Abrir ticket pelo próprio telegram, enviando email para suporte@bleez
+# Gerar log das conversas

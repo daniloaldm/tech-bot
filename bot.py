@@ -24,7 +24,7 @@ else:
 	msg = "Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."
 
 # Atendimento Inicial
-@bot.message_handler(commands=['start', 'ajuda'])
+@bot.message_handler(commands=['start', 'ajuda', 'Ajuda', 'Start'])
 def send_welcome(message):
 
 	if(msg!="Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."):
@@ -49,7 +49,7 @@ def send_welcome(message):
 		)
 
 # Primeiro menu de opções do cliente
-@bot.message_handler(commands=['Planos'])
+@bot.message_handler(commands=['Planos', 'planos'])
 def echo_all(message):
 	bot.reply_to(
 		message, "Escolha o melhor Plano pro seu negócio\n\n"
@@ -59,7 +59,7 @@ def echo_all(message):
 
 	)
 
-@bot.message_handler(commands=['Finalizar'])
+@bot.message_handler(commands=['Finalizar', 'finalizar'])
 def echo_all(message):
 	bot.reply_to(message, "Agradecemos seu contato\n\n"
 			"Siga a Bleez e acompanhe nossas ações...\n\n"
@@ -69,7 +69,7 @@ def echo_all(message):
 			"85 3025-3315")
 
 
-@bot.message_handler(commands=['Suporte'])
+@bot.message_handler(commands=['Suporte', 'suporte'])
 def echo_all(message):
 	bot.reply_to(
 				message, "\n Digite ou clique nos comandos para prosseguir:\n"
@@ -86,26 +86,26 @@ def echo_all(message):
 				
 			)
 
-@bot.message_handler(commands=['Contato'])
+@bot.message_handler(commands=['Contato', 'contato'])
 def echo_all(message):
 	bot.reply_to(
 				message, "Telefone para contato direto:\n"
 				"85 3025-3315"
 			)
 
-@bot.message_handler(commands=['Ticket'])
+@bot.message_handler(commands=['Ticket', 'ticket'])
 def echo_all(message):
 	bot.reply_to(
 				message, "https://bleez.zendesk.com/hc/pt-br/articles/360033185432-Como-abrir-e-acompanhar-tickets-"
 			)
 
-@bot.message_handler(commands=['Whatsapp'])
+@bot.message_handler(commands=['Whatsapp', 'whatsapp'])
 def echo_all(message):
 	bot.reply_to(
 				message, "https://bleez.zendesk.com/hc/pt-br/articles/360035448071-Como-adicionar-o-%C3%ADcone-de-WhatsApp-na-minha-loja-\n"
 			)
 
-@bot.message_handler(commands=['Cupom'])
+@bot.message_handler(commands=['Cupom', 'cupom'])
 def echo_all(message):
 	bot.reply_to(
 				message, "https://bleez.zendesk.com/hc/pt-br/articles/360033379972-Como-criar-cupons-de-desconto-\n"

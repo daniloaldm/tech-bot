@@ -24,12 +24,12 @@ else:
 	msg = "Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."
 
 # Atendimento Inicial
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start', 'ajuda'])
 def send_welcome(message):
 
 	if(msg!="Desculpe não podemos lhe responder agora, nosso horário de atendimento é de 08:00 á 12:00 e de 13:00 á 18:00."):
 		bot.reply_to(
-			message, msg+", Seja bem vindo ao atendimento da Bleez.\n\n"
+			message, msg+" Seja bem vindo ao atendimento da Bleez.\n\n"
 			"Você está no autoatendimento da Bleez. Este"
 			" menu inicial é automático.\n"
 			"\n Digite ou clique nos comandos para prosseguir:\n"
@@ -122,6 +122,10 @@ def echo_all(message):
 
 	#Dados que seria uma boa guardar
 	print message.json,"\n\n"
+
+	bot.reply_to(
+		message, "Desculpe, não consigo compreender o comando, para exibir as opções digite ou clique /ajuda"
+	)
 
 bot.polling()
 

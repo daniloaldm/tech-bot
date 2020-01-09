@@ -6,7 +6,7 @@ import logging
 
 # Gerando logs diários
 datefile = datetime.today().date()
-filename = "log/"+"{}.txt".format(datefile)
+filename = "logs/"+"{}.txt".format(datefile)
 logging.basicConfig(filename=filename, level=logging.DEBUG,
                     format=' %(asctime)s - %(levelname)s - %(message)s')
 

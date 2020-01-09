@@ -10,8 +10,8 @@ filename = "log/"+"{}.txt".format(datefile)
 logging.basicConfig(filename=filename, level=logging.DEBUG,
                     format=' %(asctime)s - %(levelname)s - %(message)s')
 
-# token = raw_input('Digite o token do seu chatbot:')
-token = '952125815:AAEAeB9VrLd3SDVgtip1r6IxSG0sgBzb82Q' # faço pra testar
+token = raw_input('Digite o token do seu chatbot:')
+# token = '' # faço pra testar
 bot = telebot.TeleBot(token)
 
 now = datetime.now()

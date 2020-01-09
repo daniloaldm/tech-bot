@@ -10,12 +10,14 @@ filename = "log/"+"{}.txt".format(datefile)
 logging.basicConfig(filename=filename, level=logging.DEBUG,
                     format=' %(asctime)s - %(levelname)s - %(message)s')
 
-token = raw_input('Digite o token do seu chatbot:')
-# token = '' # faço pra testar
+# token = raw_input('Digite o token do seu chatbot:')
+token = '952125815:AAEAeB9VrLd3SDVgtip1r6IxSG0sgBzb82Q' # faço pra testar
 bot = telebot.TeleBot(token)
 
 now = datetime.now()
 hora = now.hour
+# print hora
+# sys.exit()
 if(hora>6 and hora<12):
 	msg = "Bom dia."
 elif(hora>12 and hora<18):
@@ -32,7 +34,7 @@ def send_welcome(message):
 			message, msg+" Seja bem vindo ao atendimento da Bleez.\n\n"
 			"Você está no autoatendimento da Bleez. Este"
 			" menu inicial é automático.\n"
-			"\n Digite ou clique nos comandos para prosseguir:\n"
+			"\nDigite ou clique nos comandos para prosseguir:\n"
 			"/Planos - Para aderir aos planos\n"
 			"/Suporte - Suporte Técnico\n"
 			"/Finalizar - Finalizar atendimento"
@@ -115,13 +117,13 @@ def echo_all(message):
 @bot.message_handler()
 def echo_all(message):
 	# Mensagem do usuário que não é comando
-	print message.json['text'],"\n\n"
+	print (message.json['text'],"\n\n")
 
 	#Id do usuário
-	print message.json['from']['id'],"\n\n"
+	print (message.json['from']['id'],"\n\n")
 
 	#Dados que seria uma boa guardar
-	print message.json,"\n\n"
+	print (message.json,"\n\n")
 
 	bot.reply_to(
 		message, "Desculpe, não consigo compreender o comando, para exibir as opções digite ou clique /ajuda"

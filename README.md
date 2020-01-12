@@ -1,5 +1,18 @@
 ## Instalação com venv.
 
+Instale o pipenv:
+
+```
+pip install pipenv
+
+```
+ou
+
+```
+pip3 install pipenv
+
+```
+
 Após clonar o repositório, dentro do mesmo execute os comandos:
 
 ```
